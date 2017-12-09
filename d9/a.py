@@ -14,20 +14,19 @@ isSkip = False
 while True:
     c = f.read(1) # read character by character
     if not c:
-      print "End of file"
-      break
+      break # End of file
 
     if (not isSkip):
         if (c == '!'):
-            isSkip = True
+            isSkip = True # Start skipping
         elif (isGarbage):
             if (c == '>'):
-                isGarbage = False
+                isGarbage = False # stop tracking garbage
             else:
-                cleared = cleared + 1
+                cleared = cleared + 1 # track characters cleared
         else:
             if (c == '<'):
-                isGarbage = True
+                isGarbage = True # Start tracking garbage
             elif (c == '{'):
                 l = l + 1 # increase level
             elif (c == '}'):
@@ -35,7 +34,7 @@ while True:
                 l = l - 1 # decrease level
 
     else:
-        isSkip = False
+        isSkip = False # complete skipped character
 
 
 f.close();
